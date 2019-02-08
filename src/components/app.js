@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-// import reducer from './reducer'
+import Controls from './controlsBlock/controlsBlock';
+import ListGroup from './listGroup/listGroup';
 
 const AppWrapper = styled.div`
   width: 100%;
@@ -23,6 +21,8 @@ const ToDoWrapper = styled.div`
   background: rgba(255, 255, 255, 0.67);
   border-radius: 8px;
   padding: 25px 50px 13px;
+  display: flex;
+  flex-direction: column;
 `
 
 
@@ -31,7 +31,8 @@ export default class App extends React.Component {
     return (
       <AppWrapper>
         <ToDoWrapper>
-          <h1>Here will be ToDoList!</h1>
+          <ListGroup/>
+          <Controls/>
         </ToDoWrapper>
       </AppWrapper>
     )
