@@ -90,10 +90,7 @@ class Controls extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
-    task: state.taskReduse,
-    hidden: state.toggleCompleted
-  }
+  return {task: state.taskReduse}
 }
 
 export default connect(mapStateToProps)(Controls)

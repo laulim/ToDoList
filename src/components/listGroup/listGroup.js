@@ -12,25 +12,8 @@ const ListGroupBlock = styled.div`
 class ListGroup extends React.Component {
 
   render() {
-    const {task, hidden} = this.props;
-    let content = null;
-
-    if (hidden) {
-      content = task.map((item) => {
-        if(!item.status) {
-          return (
-            <ListItem
-              key={item.id}
-              id={item.id}
-              text={item.content}
-              completed={item.status}
-            />
-          )
-        }
-        return false;
-      }) 
-    } else {
-      content = task.map((item) => {
+    const {task} = this.props;
+    const content = task.map((item) => {
         return (
           <ListItem
             key={item.id}
@@ -40,7 +23,6 @@ class ListGroup extends React.Component {
           />
         )
       })
-    }
 
     return (
       <ListGroupBlock>
@@ -51,10 +33,7 @@ class ListGroup extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
-    task: state.taskReduse,
-    hidden: state.toggleCompleted
-  }
+  return {task: state.taskReduse}
 }
 
 export default connect(mapStateToProps)(ListGroup)
